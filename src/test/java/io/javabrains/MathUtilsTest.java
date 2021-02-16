@@ -73,11 +73,10 @@ class MathUtilsTest {
         boolean isServerUp = false;
         assumeTrue(isServerUp);
         /*
-            We are assuming isServerUp is true, If its False JUnit will not run this test.
+            We are assuming isServerUp is true, If its False JUnit will not run after this line.
             as assumeTrue(false) here, code after this line wont run.
          */
         fail(); // So test won't fail
-        System.out.println("This won't print if server is down");
     }
 }
 
