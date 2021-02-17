@@ -72,6 +72,7 @@ class MathUtilsTest {
 
     @Test
     @DisplayName("ASSUME SERVER RUNNING")
+    @Tag("SERVER")
     void serverStatusTest() {
         // say we have some methods that check server status and returns the result which we then store in isServerUp
         boolean isServerUp = false;
@@ -86,13 +87,16 @@ class MathUtilsTest {
 
 
     /**
-     JUnit lifecycle hooks - BeforeAll, AfterAll, BeforeEach, AfterEach
+     JUnit lifecycle hooks - @BeforeAll, @AfterAll, @BeforeEach, @AfterEach
 
      ---------------------------- ANNOTATIONS -------------------
      @DisplayName -> annotation is used to provide a custom name for the test class and test methods
      fail() -> deliberately marks the test as failed
      @Disabled -> disable/skip a test. It can be applied to a test method as well as on the Class itself
-
+     @Nested -> to denote a nested class
+     @RepeatedTest(int number) -> runs a test for number of times
+     @Tag(String tag_name) -> to run a Tagged test in Intellij IDE goto Run -> EditConfiguration -> select the Junit template -> Test kind(select Tags from the dropdown list) -> write  your tag name in the  "Tag Expression" text field
+                              to run a Tagged test as Maven command mvn test, configure pom.xml surefire plugin -> configurations
      ----------------------Conditional Executions----------------------
      @EnabledOnOs(OS.LINUX)
      @EnabledOnJre(JRE.JAVA_11)
