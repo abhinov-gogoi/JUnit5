@@ -56,7 +56,11 @@ class MathUtilsTest {
     void computeCircleArea() {
         double expected = 314.1592653589793;
         double actual = mathutils.computeCircleArea(10);
-        assertEquals(expected, actual, "Should return area of a circle");
+        //  due to lambda function the String message is lazily evaluated here.
+        //  it is only evaluated if test fails
+        //  Otherwise if we don't write lambda, it is always evaluated before assertEquals is called
+        //  lazy evaluation saves resources and time if message is complex
+        assertEquals(expected, actual, ()-> "The add method should give are of a circle. Expected "+expected+" but actual "+actual);
     }
 
     @Test
